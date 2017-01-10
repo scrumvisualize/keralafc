@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Kerala FC</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" type="text/css" href="keralafc.css">
+    <style>
+      
+    </style>
+  </head>
+  <body>
+  
+	<div id="flip" class="tooltip"><h2>Kerala F C 2017<img src="file:///C:/Users/admin/Pictures/images/images/Keralafclogorevised.jpg" style="margin:auto; width:90px;display:block" /></h2>
+    <div class="popup">Click here !</div></div>
+
+	<div id="wrapper" class="container">
+		<h1> Team Owners </h1>	
+		<p>A group of friends decide to buy a soccer team and to participate in forth coming APL soccer 2017. The idea is to promote soccer and give confidence to new buyers.</p>
+		<div id="col1" onclick="initialize()"><img class="img-circle" src="file:///C:/Users/admin/Pictures/images/images/wolf.JPG"><span class="caption"><b>Vinod</b></span></div>
+		<div id="col2" onclick="initialize()" class="badge1" data-badge="AR"><img class="img-circle" src="file:///C:/Users/admin/Pictures/images/images/Aru.JPG"><span class="caption"><b>Arun</b></span></div>
+		<div id="col3" onclick="initialize()"><img class="img-circle" src="file:///C:/Users/admin/Pictures/images/images/Rajesh.PNG"><span class="caption"><b>Rajesh</b></span></div>
+		<div id="col4" onclick="initialize()"><img class="img-circle" src="file:///C:/Users/admin/Pictures/images/images/sim.JPG"><span class="caption"><b>Simman</b></span></div>
+    </div>
+
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+	
+    <div class="bidding">
+		<a href="file:///C:/Users/admin/Pictures/images/KeralaFCBidding.xlsx">Kerala FC Bidding</a>
+   </div>
+	
+	<div id="floating-panel">
+			<div id="close" class="close_box"></div>	
+		<div class="myteam">
+			<h3> Kerala FC Players</h3>
+		</div><br>
+			<div id="col5">
+			<img class="img-circle" src="file:///C:/Study/linda/images/Aru.JPG"></img>
+			</div>	
+			<div id="col6">
+			<img class="img-circle" src="file:///C:/Study/linda/images/Aru.JPG"></img>
+			</div>
+			<div id="col7">
+			<img class="img-circle" src="file:///C:/Study/linda/images/Aru.JPG"></img>
+			</div>
+			<div id="col7">
+			<img class="img-circle" src="file:///C:/Study/linda/images/Aru.JPG"></img>
+			</div>
+			<div id="col7">
+			<img class="img-circle" src="file:///C:/Study/linda/images/Aru.JPG"></img>
+			</div>
+			<div id="col7">
+			<img class="img-circle" src="file:///C:/Study/linda/images/Aru.JPG"></img>
+			</div>
+			<div id="col7">
+			<img class="img-circle" src="file:///C:/Study/linda/images/Aru.JPG"></img>
+			</div>
+			<div id="col7">
+			<img class="img-circle" src="file:///C:/Study/linda/images/Aru.JPG"></img>
+			</div>
+			<div id="col7">
+			<img class="img-circle" src="file:///C:/Study/linda/images/Aru.JPG"></img>
+			</div>
+			<div id="col7">
+			<img class="img-circle" src="file:///C:/Study/linda/images/Aru.JPG"></img>
+			</div>
+			<div id="col7">
+			<img class="img-circle" src="file:///C:/Study/linda/images/Aru.JPG"></img>
+			</div>
+			<div id="col7">
+			<img class="img-circle" src="file:///C:/Study/linda/images/Aru.JPG"></img>
+			</div>
+   </div>
+   
+   
+   <div id="floating-panel2">
+			<div id="close" class="close_box"></div>	
+		<div class="myteam">
+			<h3> Our Sponsors</h3>
+		</div><br>
+			<div id="col17">
+			<a href="">Coming Soon !</a>
+			</div><br>	
+			<div id="col18">
+			<a href="">Coming Soon !</a>
+			</div>
+			<div id="col19">
+			
+			</div>
+			<div id="col20">
+			
+			</div>
+			
+   </div>
+   
+   <div id="floating-panel3">
+			<div id="close" class="close_box"></div>	
+		<div class="myteam">
+			<h3> Calender</h3>
+		</div><br>
+	<iframe src="https://calendar.google.com/calendar/embed?src=neblstuvh3u4oaffrva3djpt7o%40group.calendar.google.com&ctz=Pacific/Auckland" style="border: 0" width="216" height="200" frameborder="0" scrolling="no"></iframe>		
+			
+   </div>
+   
+   
+   
+   
+   
+   <div id="map">	
+	
+	</div>	
+	
+	
+    <script>
+      // This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+	  $(document).ready(function(){
+    $("#flip").click(function(){
+        $("#wrapper").slideToggle("slow");
+		$("#floating-panel").show(); 		
+    });		
+	
+});
+
+$(document).on('click','.close_box',function(){
+    $(this).parent().remove();
+});
+  
+$('#floating-panel').draggable();
+
+
+//var contentString = '<iframe title="YouTube video player" class="youtube-player" type="text/html" width="280" height="175" src="src="https://www.youtube.com/embed/XGSy3_Czz8k?autoplay=1" frameborder="0"></iframe>';	
+	  
+var contentString = '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h1 id="firstHeading" class="firstHeading">Video in Info Window</h1>' +
+            '<div id="bodyContent">' +
+            '<video width="320" height="240" controls>' +
+            '<source src="http://corrupt-system.de/assets/media/sintel/sintel-trailer.m4v" type="video/mp4" />' +
+            '<source src="http://corrupt-system.de/assets/media/sintel/sintel-trailer.webm" type="video/webm" />' + 
+            '</video>' +
+            '</div>' +
+            '</div>';
+	
+	// Standard google maps function
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(-36.9111, 174.8820);
+        var myOptions = {
+            zoom: 9,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById("map"), myOptions);
+		
+        TestMarker();
+    }
+	
+	
+
+    // Function for adding a marker to the page.
+    function addMarker(location) {
+        marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+		
+		var infowindow = new google.maps.InfoWindow({
+         content: contentString
+  });  
+		
+		marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+    }
+	
+
+    // Testing the addMarker function
+    function TestMarker() {
+	
+	var ownerA = document.getElementById("col1").textContent;
+	var ownerB = document.getElementById("col2").textContent;
+	var ownerC = document.getElementById("col3").textContent;
+	var ownerD = document.getElementById("col4").textContent;
+	
+	if(ownerA ==='Vinod'){
+           CentralPark1 = new google.maps.LatLng(-36.911145, 174.882012);
+           addMarker(CentralPark1);		   
+		   }
+		   
+	 if(ownerB ==='Arun'){
+           CentralPark2 = new google.maps.LatLng(-36.911787, 174.776076);
+           addMarker(CentralPark2);		   
+		   }
+		   
+	if(ownerC ==='Rajesh'){
+           CentralPark3 = new google.maps.LatLng(-37.039679, 174.924102);
+           addMarker(CentralPark3);		   
+		   }
+	if(ownerD ==='Simman'){
+           CentralPark4 = new google.maps.LatLng(-36.916575, 174.715166);
+           addMarker(CentralPark4);		   
+		   }
+
+   
+    }
+	
+	
+
+  
+ 
+      function initAutocomplete() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -36.9111, lng: 174.8820},
+          zoom: 10,
+          mapTypeId: 'roadmap'
+        });
+
+        // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });
+		
+		
+      }
+	  
+
+	  
+	  
+
+    </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDN8m66SgNsXKw4sqANDB8V-8kMPU9XKw4&libraries=places&callback=initAutocomplete"
+         async defer></script>
+		
+	
+  </body>
+</html>
