@@ -26,7 +26,11 @@ h2 {
     -webkit-margin-end: 0px;
     font-weight: bold;
 }
-
+p{
+	font-family: 'Roboto','sans-serif';
+	font-size: 12px;
+	
+}
 h1 {
     display: block;
     font-size: 1.3em;
@@ -90,16 +94,22 @@ h3 {
 #wrapper, #flip {
     padding: 5px;
     text-align: center;
-    background-color: #178ac4;
+    background-color: #596675;
     border: solid 1px #e8e1e2;
 	font-family: 'Roboto','sans-serif';
 	color:white;
+	
 }
 
 #wrapper {
     padding: 30px;
     display: none;
 	font-family: 'Roboto','sans-serif';
+}
+
+.container{
+	background-image: url('images/sunset.jpg');
+	
 }
 
 .img-circle {
@@ -111,6 +121,7 @@ h3 {
 #col2 { width: 25%; float:left; background-color: #c5db8a; }
 #col3 { width: 25%; float:left; background-color: #afbabf; color: white;}
 #col4 { width: 25%; float:left; background-color: #c5db8a; }
+
 
 
 #floating-panel {
@@ -144,7 +155,7 @@ h3 {
 #floating-panel2 {
  
   position: absolute;
-  top: 640px;
+  top: 648px;
   width: 215px;
   height: 230px;
   right: 1%;
@@ -166,12 +177,50 @@ h3 {
 #floating-panel3 {
  
   position: absolute;
-  top: 345px;
+  top: 350px;
   width: 215px;
   height: 280px;
   right: 1%;
   z-index: 5;
   background-color: #565554;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 28px;
+  padding-left: 10px;
+  opacity: 1;
+  filter: alpha(opacity=70);
+}
+
+#floating-panel4 {
+ 
+  position: absolute;
+  top: 150px;
+  width: 115px;
+  height: 20px;
+  right: 25%;
+  z-index: 5;
+  background-color: #ffffff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 28px;
+  padding-left: 10px;
+  opacity: 1;
+  filter: alpha(opacity=70);
+}
+
+#floating-panel5 {
+ 
+  position: absolute;
+  top: 150px;
+  width: 100px;
+  height: 20px;
+  right: 15%;
+  z-index: 5;
+  background-color: #ffffff;
   padding: 5px;
   border: 1px solid #999;
   text-align: center;
@@ -199,10 +248,17 @@ h3 {
   transition:  opacity 0.5s;
 }
 
+.tooltip{
+	
+	background-image: url('images/balls.jpg');
+	
+}
+
 .tooltip:hover .popup {
     opacity:1;
 	font-family: 'Roboto','sans-serif';
 	text-align:center; 
+	
 }
 
 #close { 
