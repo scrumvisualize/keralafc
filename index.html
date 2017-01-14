@@ -203,34 +203,7 @@ var contentString2 = '<div id="content">' +
 		
     }
 	
-	 // Get the directionService call function
-	function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB) {
-    directionsService.route({
-        origin: pointA,
-        destination: pointB,
-        avoidTolls: true,
-        avoidHighways: false,		
-        travelMode: google.maps.TravelMode.DRIVING
-    }, function (response, status) {
-        if (status == google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(response);
-			google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
-           directions = directionsDisplay.getDirections();		   
-		   // Display the duration:
-             document.getElementById('floating-panel4').innerHTML += 
-                response.routes[0].legs[0].duration.value + " seconds";
-				
-		  // Display the distance:
-             document.getElementById('floating-panel5').innerHTML += 
-                response.routes[0].legs[0].distance.value + " meters";
-
-      })			
-			
-        } else {
-            window.alert('Directions request failed due to ' + status);
-        }
-    });
-}
+	 
 	
 	
 	
@@ -239,6 +212,7 @@ var contentString2 = '<div id="content">' +
     function addMarker(location) {
         marker = new google.maps.Marker({
             position: location,
+			draggable:true,
             map: map
         });	
 
@@ -401,7 +375,7 @@ var contentString2 = '<div id="content">' +
         });
 		
 		var pointA = new google.maps.LatLng(-36.9111, 174.8820),
-        pointB = new google.maps.LatLng(-36.911787, 174.776076);
+        pointB = new google.maps.LatLng(-37.687797, 176.165130);
         myOptions = {
             zoom: 10,
             center: pointA
@@ -447,6 +421,39 @@ var contentString2 = '<div id="content">' +
 		
 		
       }
+	  
+	  
+	  // Get the directionService call function
+	function calculateAndDisplayRoute(directionsService, directionsDisplay, pointA, pointB) {
+    directionsService.route({
+        origin: pointA,
+        destination: pointB,
+        avoidTolls: true,
+        avoidHighways: false,		
+        travelMode: google.maps.TravelMode.DRIVING
+    }, function (response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+			directionsDisplay.setDirections(response);
+            
+		  google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
+           directions = directionsDisplay.getDirections();		   
+		   // Display the duration:
+               document.getElementById('floating-panel4').innerHTML += 
+                 response.routes[0].legs[0].duration.value + " seconds";
+				
+		  // Display the distance:
+             document.getElementById('floating-panel5').innerHTML += 
+                response.routes[0].legs[0].distance.value + " meters";
+				
+				
+
+      });	  
+
+        } else {
+            window.alert('Directions request failed due to ' + status);
+        }
+    });
+}
 
  
 
