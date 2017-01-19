@@ -47,6 +47,7 @@ h3 {
   font-style: Verdana;   
 	
 }
+
 .controls {
         margin-top: 10px;
         border: 1px solid transparent;
@@ -91,11 +92,12 @@ h3 {
       #target {
         width: 345px;
       }
+
 #wrapper, #flip {
     padding: 5px;
     text-align: center;
     background-color: #596675;
-    border: solid 1px #e8e1e2;
+    border: solid 1px #efeaeb;
 	font-family: 'Roboto','sans-serif';
 	color:white;
 	
@@ -108,7 +110,7 @@ h3 {
 }
 
 .container{
-	background-image: url('');
+	background-image: url('images/sunset.jpg');
 	
 }
 
@@ -155,7 +157,7 @@ h3 {
 #floating-panel2 {
  
   position: absolute;
-  top: 648px;
+  top: 680px;
   width: 215px;
   height: 230px;
   right: 1%;
@@ -177,7 +179,7 @@ h3 {
 #floating-panel3 {
  
   position: absolute;
-  top: 350px;
+  top: 385px;
   width: 215px;
   height: 280px;
   right: 1%;
@@ -210,6 +212,7 @@ h3 {
   padding-left: 10px;
   opacity: 1;
   filter: alpha(opacity=70);
+  box-shadow: 5px 5px 5px #888888;
 }
 
 #floating-panel5 {
@@ -229,6 +232,107 @@ h3 {
   padding-left: 10px;
   opacity: 1;
   filter: alpha(opacity=70);
+  box-shadow: 5px 5px 5px #888888;
+}
+
+
+#floating-panel6 {
+ 
+  position: absolute;
+  top: 440px;
+  width: 20px;
+  height: 20px;
+  left: 3%;
+  z-index: 5;
+  background-color: #abd1f3;
+  padding: 0px;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 28px;
+  padding-left: 10px;
+  opacity: 1;
+  filter: alpha(opacity=70);
+  
+}
+
+#floating-panel7 {
+  display: none;
+  position: absolute;
+  top: 500px;
+  width: 250px;
+  height: 300px;
+  left: 19%;
+  z-index: 5;
+  background-color: #f7f7f4;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 28px;
+  padding-left: 10px;
+  opacity: 1;
+  filter: alpha(opacity=70);
+  box-shadow: 5px 5px 5px #888888;
+}
+
+
+#floating-panel8{
+  display: none;
+  position: absolute;
+  top: 500px;
+  width: 300px;
+  height: 300px; 
+  overflow-y:scroll;
+  overflow-x:hidden;
+  left: 42%;
+  z-index: 5;
+  background-color: #f7f7f4;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: left;
+  font-family: 'Roboto','sans-serif';
+  line-height: 28px;
+  padding-left: 0px;
+  opacity: 1;
+  filter: alpha(opacity=70);
+  box-shadow: 5px 5px 5px #888888;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow:none;
+    border-radius: 0px;
+    background-color:#aaa;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    -webkit-box-shadow: inset 1px 1px 6px #333; 
+    background-color:#666;
+}
+
+#floating-panel9{
+  
+  position: absolute;
+  top: 300px;
+  width: 300px;
+  height: 30px;
+ 
+  left: 10%;
+  z-index: 5;
+  background-color: #ffffff;
+  
+  border: 1px solid #999;
+  text-align: left;
+  font-family: 'Roboto','sans-serif';
+  line-height: 28px;
+  padding-left: 0px;
+  opacity: 1;
+  filter: alpha(opacity=70);
+  box-shadow: 5px 5px 5px #888888;
 }
 .popup {
   top: 20px;
@@ -250,7 +354,7 @@ h3 {
 
 .tooltip{
 	
-	background-image: url('');
+	background-image: url('images/balls.jpg');
 	
 }
 
@@ -317,3 +421,46 @@ left: 1%;
   filter: alpha(opacity=70);
 	
 }
+.button-bar {
+  background: @button-bar-bg-color;
+  padding: @general-spacer * 2;
+}
+#flipscore {
+    position: absolute;
+    bottom: 5px;
+    left: 3px;
+}
+
+.img-score {
+    display: inline-block;
+    width: 2.5em;
+    height: 2.5em;
+    border: 0.2em solid #808080;
+    border-radius: 13%;
+    margin-left: 0.25em;
+}
+
+.img-score:after {
+    content: '';
+    display: inline-block;
+    margin-top: 0.3em;
+    width: 1.0em;
+    height: 1.0em;
+    border-top: 0.4em solid #808080;
+    border-right: 0.4em solid #808080;
+    -moz-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+	
+}
+#directions {
+    width: 100%;
+    float: left; 
+}
+
+#FromToSelect{
+	width: 100%;
+    float: left; 
+	
+}
+

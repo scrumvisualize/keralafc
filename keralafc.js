@@ -1,0 +1,307 @@
+// This example adds a search box to a map, using the Google Place Autocomplete
+      // feature. People can enter geographical searches. The search box will return a
+      // pick list containing a mix of places and predicted search terms.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+	  
+var directionsDisplay,
+    directionsService,
+    map;
+	  
+$(document).ready(function(){
+ $("#flip").click(function(){
+        $("#wrapper").slideToggle("slow");
+		$("#floating-panel").show(); 		
+    });		
+	
+});
+
+$(document).on('click','.close_box',function(){
+    $(this).parent().remove();
+});
+  
+//$('#floating-panel').draggable();
+
+
+//var contentString = '<iframe title="YouTube video player" class="youtube-player" type="text/html" width="280" height="175" src="src="https://www.youtube.com/embed/XGSy3_Czz8k?autoplay=1" frameborder="0"></iframe>';	
+	  
+var contentString = '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h1 id="firstHeading" class="firstHeading">Video in Info Window</h1>' +
+            '<div id="bodyContent">' +
+            '<video width="320" height="240" controls>' +
+            '<source src="http://corrupt-system.de/assets/media/sintel/sintel-trailer.m4v" type="video/mp4" />' +
+            '<source src="http://corrupt-system.de/assets/media/sintel/sintel-trailer.webm" type="video/webm" />' + 
+            '</video>' +
+            '</div>' +
+            '</div>';
+			
+var contentString1 = '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h1 id="firstHeading" class="firstHeading">Video in Info Window</h1>' +
+            '<div id="bodyContent">' +
+            '<p>Thi abfdf dsf</p>' +
+            '</div>' +
+            '</div>';
+			
+var contentString2 = '<div id="content">' +
+            '<div id="siteNotice">' +
+            '</div>' +
+            '<h1 id="firstHeading" class="firstHeading">Video in Info Window</h1>' +
+            '<div id="bodyContent">' +
+            '<p>best this one</p>' +
+            '</div>' +
+            '</div>';
+	
+	// Standard google maps function
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(-36.9111, 174.8820);
+        var myOptions = {
+            zoom: 9,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById("map"), myOptions);		
+		
+        TestMarker();
+
+		
+    }
+	
+	
+	
+	 	
+	
+
+    // Function for adding a marker to the page.
+    function addMarker(location) {
+        marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });	
+
+		var infowindow = new google.maps.InfoWindow({	
+	    content: contentString		
+
+  }); 
+  
+  	marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
+		
+		
+  
+    }
+	
+	
+	
+	function myInfoWindow() {
+	
+	var myVid1 = document.getElementById("col1");
+	var myStr1 = document.getElementById("col2");
+	var myVid2 = document.getElementById("col3");
+	var myStr2 = document.getElementById("col4");
+	
+	myVid1.onclick = function() {
+     
+
+  
+	}
+
+	myStr1.onclick = function() {     
+	
+	
+  
+	}
+	
+	myVid2.onclick = function() {
+   
+	 
+	 
+	}
+	
+	myStr2.onclick = function() {
+     
+	}
+	
+	
+  }
+	
+	
+
+    // Testing the addMarker function
+    function TestMarker() {
+	
+	var ownerA = document.getElementById("col1").textContent;
+	var ownerB = document.getElementById("col2").textContent;
+	var ownerC = document.getElementById("col3").textContent;
+	var ownerD = document.getElementById("col4").textContent;
+	
+	if(ownerA ==='Vinod'){
+           CentralPark1 = new google.maps.LatLng(-36.911145, 174.882012);
+           addMarker(CentralPark1);		   
+		   }
+		   
+	 if(ownerB ==='Arun'){
+           CentralPark2 = new google.maps.LatLng(-36.911787, 174.776076);
+           addMarker(CentralPark2);		   
+		   }
+		   
+	if(ownerC ==='Rajesh'){
+           CentralPark3 = new google.maps.LatLng(-37.039679, 174.924102);
+           addMarker(CentralPark3);		   
+		   }
+	if(ownerD ==='Simman'){
+           CentralPark4 = new google.maps.LatLng(-36.916575, 174.715166);
+           addMarker(CentralPark4);		   
+		   }
+
+   
+    }
+	
+	
+
+  
+ 
+      function initAutocomplete() {
+	  
+	    var myLatlng = new google.maps.LatLng(-36.9111, 174.8820);
+		  var myOptions = {
+            zoom: 9,
+            center: myLatlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(document.getElementById("map"), myOptions); 
+		
+		// Search places was written here, now added as separate function searchByplaces().
+
+		 directionsDisplay = new google.maps.DirectionsRenderer({ draggable: true });
+		 directionsService = new google.maps.DirectionsService();
+		 map;
+		
+		 map = new google.maps.Map(document.getElementById("map"), myOptions);
+         directionsDisplay.setMap(map);
+		 directionsDisplay.setPanel(document.getElementById("directions"));
+		
+		$("#routeMode").on("change", function() { calcRoute(); });
+        $("#routeGo").on("click", function() { calcRoute(); });
+        $("#routeClear").on("click", function() { directionsDisplay.setDirections({ routes: [] }); }); 	
+		
+		
+		searchByplaces();
+	
+ }
+ 
+ function calcRoute() {
+    var request = {
+        origin: $("#routeTo").val(),
+        destination: $("#routeFrom").val(),
+        travelMode: google.maps.TravelMode[$("#routeMode").val()]
+    };
+    directionsService.route(request, function(response, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+			google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
+           directions = directionsDisplay.getDirections();		   
+		   // Display the duration:
+             document.getElementById('floating-panel4').innerHTML += 
+                response.routes[0].legs[0].duration.value + " seconds";
+				
+		  // Display the distance:
+             document.getElementById('floating-panel5').innerHTML += 
+                response.routes[0].legs[0].distance.value + " meters";
+
+      })	
+        }else {
+            window.alert('Directions request failed due to ' + status);
+        }
+    });
+}
+	
+	
+function searchByplaces(){
+	
+	 // Create the search box and link it to the UI element.
+        var input = document.getElementById('pac-input');
+        var searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+
+        var markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+
+          if (places.length == 0) {
+            return;
+          }
+
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
+
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              icon: icon,
+              title: place.name,
+              position: place.geometry.location
+            }));
+
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+          map.fitBounds(bounds);
+        });			
+		
+		var trafficLayer = new google.maps.TrafficLayer();
+		
+        trafficLayer.setMap(map);
+		
+
+	
+}
+
+
+
+$(document).ready(function(){	
+    $("#flipscore").click(function(){
+        $("#floating-panel7, #floating-panel8").slideToggle("slow");
+    });
+});
+
+
+
+
+
+
