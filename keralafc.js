@@ -9,6 +9,9 @@
 var directionsDisplay,
     directionsService,
     map;
+var trafficLayer;
+
+
 	  
 $(document).ready(function(){
  $("#flip").click(function(){
@@ -175,6 +178,7 @@ var contentString2 = '<div id="content">' +
             center: myLatlng,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
+		
         map = new google.maps.Map(document.getElementById("map"), myOptions); 
 		
 		// Search places was written here, now added as separate function searchByplaces().
@@ -189,10 +193,10 @@ var contentString2 = '<div id="content">' +
 		
 		$("#routeMode").on("change", function() { calcRoute(); });
         $("#routeGo").on("click", function() { calcRoute(); });
-        $("#routeClear").on("click", function() { directionsDisplay.setDirections({ routes: [] }); }); 	
-		
+        $("#routeClear").on("click", function() { directionsDisplay.setDirections({ routes: [] }); }); 			
 		
 		searchByplaces();
+		
 	
  }
  
@@ -272,7 +276,8 @@ function searchByplaces(){
               icon: icon,
               title: place.name,
               position: place.geometry.location
-            }));
+            }));		
+			
 
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
@@ -282,15 +287,35 @@ function searchByplaces(){
             }
           });
           map.fitBounds(bounds);
-        });			
-		
-		var trafficLayer = new google.maps.TrafficLayer();
-		
-        trafficLayer.setMap(map);
-		
+		  
+        });	
 
+			
 	
 }
+
+
+function showTraffic() {
+	
+if (document.getElementById('showtraffic').checked === true) {
+
+		trafficLayer = new google.maps.TrafficLayer();		
+        trafficLayer.setMap(map);
+		
+} else {
+	
+	(document.getElementById('showtraffic').checked === false)
+	trafficLayer.setMap(null);
+	
+}
+		
+		
+}
+  
+ 
+
+
+
 
 
 
