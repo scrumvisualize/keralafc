@@ -10,13 +10,20 @@ var directionsDisplay,
     directionsService,
     map;
 var trafficLayer;
+var infowindow;
+// Varibles to used in getLocation():
+var currentLatitude;
+var currentLongitude;
+var newcords = [];
+
+var createMarker;
 
 
 	  
 $(document).ready(function(){
  $("#flip").click(function(){
         $("#wrapper").slideToggle("slow");
-		$("#floating-panel").show(); 		
+		$("#floating-panel, #floating-panel2, #floating-panel3").show(); 		
     });		
 	
 });
@@ -174,8 +181,9 @@ var contentString2 = '<div id="content">' +
 	  
 	    var myLatlng = new google.maps.LatLng(-36.9111, 174.8820);
 		  var myOptions = {
-            zoom: 9,
+            zoom: 11,
             center: myLatlng,
+			icon: 'images/marker-icon.PNG',
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
 		
@@ -273,11 +281,14 @@ function searchByplaces(){
             // Create a marker for each place.
             markers.push(new google.maps.Marker({
               map: map,
-              icon: icon,
+			  icon: 'images/download.PNG',
+             // icon: icon,
               title: place.name,
-              position: place.geometry.location
+			  animation: google.maps.Animation.DROP,
+			  draggable: true,
+              position: place.geometry.location			  
             }));		
-			
+					
 
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
@@ -324,6 +335,77 @@ $(document).ready(function(){
         $("#floating-panel7, #floating-panel8").slideToggle("slow");
     });
 });
+
+
+
+
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(getCoordinates);
+    } else { 
+        alert("Sorry ! Geolocation is not supported by this browser");
+    }
+}
+
+function getCoordinates(position) {
+    currentLatitude = position.coords.latitude;
+    currentLongitude = position.coords.longitude; 
+    //alert(currentLongitude+" and "+currentLatitude);
+	return {lat: currentLongitude, lon: currentLatitude};
+}
+
+getLocation();
+
+
+
+function findMe() {	
+	newcords = getLocation();
+	
+		var userMarker1 = new google.maps.Marker({	
+		position: {lat: currentLatitude, lng: currentLongitude},
+		zoom: 12,
+		icon:'images/download.png',
+		title: "Vinod",
+		map: map	
+	});
+	
+	
+	var request = {
+    location: {lat: currentLatitude, lng: currentLongitude},
+	radius: '5500',	
+    types: ['restaurant']
+  };
+	infowindow = new google.maps.InfoWindow();
+	places = new google.maps.places.PlacesService(map);
+	places.nearbySearch(request, callback);
+
+function callback(results, status) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+      createMarker(results[i]);
+    }
+  }
+}
+
+function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+		  icon:'images/bare.PNG',
+		  animation: google.maps.Animation.DROP,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
+
+}
+
 
 
 
