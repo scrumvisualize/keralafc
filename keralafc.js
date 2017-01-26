@@ -281,8 +281,7 @@ function searchByplaces(){
             // Create a marker for each place.
             markers.push(new google.maps.Marker({
               map: map,
-			  icon: 'images/download.png',
-             // icon: icon,
+			  icon: 'images/download.PNG',             
               title: place.name,
 			  animation: google.maps.Animation.DROP,
 			  draggable: true,
