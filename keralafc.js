@@ -18,6 +18,8 @@ var newcords = [];
 
 var createMarker;
 
+var markers =[];
+
 
 	  
 $(document).ready(function(){
@@ -363,12 +365,13 @@ function findMe() {
 	
 		var userMarker1 = new google.maps.Marker({	
 		position: {lat: currentLatitude, lng: currentLongitude},
-		zoom: 12,
+		zoom: 11,
 		icon:'images/download.png',
 		title: "Vinod",
 		map: map	
 	});
 	
+	markers.push(userMarker1);
 	
 	var request = {
     location: {lat: currentLatitude, lng: currentLongitude},
@@ -396,6 +399,7 @@ function createMarker(place) {
 		  animation: google.maps.Animation.DROP,
           position: place.geometry.location
         });
+		markers.push(marker);
 
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.setContent(place.name);
@@ -406,7 +410,28 @@ function createMarker(place) {
 }
 
 
+function clearMarker(){
+	
+var clearBtn = document.getElementById("btnClr");
 
+ for(var i=0; i< markers.length; i++) {
+        markers[i].setMap(null);
+    }	
+	
+}
+
+
+function check(form) { /*function to check userid & password*/
+                /*the following code checkes whether the entered userid and password are matching*/
+                if(form.userid.value == "keralafc" && form.pswrd.value == "summer1234") {
+                    window.open('KeralaFC.xlsx')/*opens the target page while Id & password matches*/
+                }
+                else {
+                    alert("Error Password or Username")/*displays error message*/
+                }
+            }
+			
+			
 
 
 

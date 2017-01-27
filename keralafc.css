@@ -48,12 +48,14 @@ h3 {
 	
 }
 
-.button1{
+.button1, .button2{
 	
 	background-color: #e54e1b;
 	border-radius: 4px;
 	height: 25px;
 	color: #fff;
+	
+    
 }
 
 .controls {
@@ -131,6 +133,7 @@ h3 {
 #col2 { width: 25%; float:left; background-color: #c5db8a; }
 #col3 { width: 25%; float:left; background-color: #afbabf; color: white;}
 #col4 { width: 25%; float:left; background-color: #c5db8a; }
+
 
 
 
@@ -455,7 +458,7 @@ h3 {
 .bidding{
 position: absolute;
 
-width: 200px;	
+width: 22%;	
 bottom: 100px;
 left: 1%;
   z-index: 5;
@@ -463,11 +466,19 @@ left: 1%;
   padding: 5px;
   border: 1px solid #999;
   text-align: center;
+  font-size:small;
   font-family: 'Roboto','sans-serif';
   line-height: 28px;
   padding-left: 10px;
   opacity: 0.7;
   filter: alpha(opacity=70);
+	
+}
+
+.inputtext input{
+		
+	width: calc(100% - 10px);
+	
 	
 }
 .button-bar {
