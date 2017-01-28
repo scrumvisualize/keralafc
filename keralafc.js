@@ -17,8 +17,11 @@ var currentLongitude;
 var newcords = [];
 
 var createMarker;
+var userMarker1;
 
 var markers =[];
+
+
 
 
 	  
@@ -363,7 +366,7 @@ getLocation();
 function findMe() {	
 	newcords = getLocation();
 	
-		var userMarker1 = new google.maps.Marker({	
+		userMarker1 = new google.maps.Marker({	
 		position: {lat: currentLatitude, lng: currentLongitude},
 		zoom: 11,
 		icon:'images/download.png',
@@ -371,7 +374,9 @@ function findMe() {
 		map: map	
 	});
 	
-	markers.push(userMarker1);
+	window.setInterval("changeMarkerPosition(userMarker1)", 5000);
+	//changeMarkerPosition(userMarker1);
+	//markers.push(userMarker1);
 	
 	var request = {
     location: {lat: currentLatitude, lng: currentLongitude},
@@ -407,6 +412,15 @@ function createMarker(place) {
         });
       }
 
+}
+
+
+function changeMarkerPosition(userMarker1) {
+
+myLatlng = new google.maps.LatLng(currentLatitude, currentLongitude);	
+        
+ userMarker1.setPosition(myLatlng);   	
+    
 }
 
 
