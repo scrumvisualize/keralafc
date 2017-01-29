@@ -22,8 +22,6 @@ var userMarker1;
 var markers =[];
 
 
-
-
 	  
 $(document).ready(function(){
  $("#flip").click(function(){
@@ -33,6 +31,13 @@ $(document).ready(function(){
 	
 });
 
+$(document).ready(function(){
+ $("#wrapper").click(function(){
+        $("#wrapper1").slideToggle("slow");
+		 		
+    });		
+	
+});
 $(document).on('click','.close_box',function(){
     $(this).parent().remove();
 });
@@ -186,7 +191,7 @@ var contentString2 = '<div id="content">' +
 	  
 	    var myLatlng = new google.maps.LatLng(-36.9111, 174.8820);
 		  var myOptions = {
-            zoom: 11,
+            zoom: 13,
             center: myLatlng,
 			icon: 'images/marker-icon.PNG',
             mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -368,8 +373,8 @@ function findMe() {
 	
 		userMarker1 = new google.maps.Marker({	
 		position: {lat: currentLatitude, lng: currentLongitude},
-		zoom: 11,
-		icon:'images/download.png',
+		zoom: 12,
+		icon:'images/download.PNG',
 		title: "Vinod",
 		map: map	
 	});
