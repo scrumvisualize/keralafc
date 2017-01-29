@@ -6,6 +6,8 @@
         height: 100%;
         margin: 0;
         padding: 0;
+		
+		
       }
 
 h1 {
@@ -457,10 +459,9 @@ h3 {
 
 .bidding{
 position: absolute;
-
 width: 20%;	
 height:30%;
-bottom: 50px;
+bottom: 1px;
 left: 1%;
   z-index: 5;
   background-color: #edcb9c;
