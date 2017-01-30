@@ -21,6 +21,8 @@ var userMarker1;
 
 var markers =[];
 
+var myLatlng;
+
 
 	  
 $(document).ready(function(){
@@ -416,15 +418,26 @@ function createMarker(place) {
           infowindow.open(map, this);
         });
       }
+	
+var contentStringVM = '<b>Vinod Mathew</b>'+'<br><img class="img-circle" src="images/VinM.PNG" "alt="Vinod">';
+	var infowindow = new google.maps.InfoWindow({
+    content: contentStringVM
+  });
+  
+  userMarker1.addListener('click', function() {
+    infowindow.open(map, userMarker1);
+  });
+  
+	  
 
 }
 
 
 function changeMarkerPosition(userMarker1) {
 
-myLatlng = new google.maps.LatLng(currentLatitude, currentLongitude);	
-        
- userMarker1.setPosition(myLatlng);   	
+var myLatlng = new google.maps.LatLng(currentLatitude, currentLongitude);
+	map.panTo(new google.maps.LatLng( currentLatitude, currentLongitude ));
+	userMarker1.setPosition(myLatlng);   	
     
 }
 
@@ -432,7 +445,6 @@ myLatlng = new google.maps.LatLng(currentLatitude, currentLongitude);
 function clearMarker(){
 	
 var clearBtn = document.getElementById("btnClr");
-
  for(var i=0; i< markers.length; i++) {
         markers[i].setMap(null);
     }	
