@@ -193,7 +193,7 @@ var contentString2 = '<div id="content">' +
 	  
 	    var myLatlng = new google.maps.LatLng(-36.9111, 174.8820);
 		  var myOptions = {
-            zoom: 14,
+            zoom: 13,
             center: myLatlng,
 			icon: 'images/marker-icon.PNG',
             mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -375,13 +375,13 @@ function findMe() {
 	
 		userMarker1 = new google.maps.Marker({	
 		position: {lat: currentLatitude, lng: currentLongitude},
-		zoom: 14,
-		icon:'images/starone.PNG',
+		zoom: 13,
+		icon:'images/pointer 1.PNG',
 		title: "Vinod",
 		map: map	
 	});
 	
-	window.setInterval("changeMarkerPosition(userMarker1)", 5000);
+	window.setInterval("changeMarkerPosition(userMarker1)", 4000);
 	//changeMarkerPosition(userMarker1);
 	//markers.push(userMarker1);
 	
@@ -407,7 +407,7 @@ function createMarker(place) {
         var placeLoc = place.geometry.location;
         var marker = new google.maps.Marker({
           map: map,
-		  icon:'images/bare.PNG',
+		  icon:'images/bar icon 1a.PNG',
 		  animation: google.maps.Animation.DROP,
           position: place.geometry.location
         });
