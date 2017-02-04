@@ -376,7 +376,7 @@ function findMe() {
 		userMarker1 = new google.maps.Marker({	
 		position: {lat: currentLatitude, lng: currentLongitude},
 		zoom: 13,
-		icon:'images/pointer1.PNG',
+		icon:'images/pointer_2.PNG',
 		title: "Vinod",
 		map: map	
 	});
