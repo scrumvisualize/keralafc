@@ -285,8 +285,8 @@ h3 {
   display: none;
   position: absolute;
   top: 370px;
-  width: 290px;
-  height: 290px;
+  width: 280px;
+  height: 150px;
   left: 23%;
   z-index: 5;
   background-color: #f7f7f4;
@@ -308,9 +308,9 @@ h3 {
 #floating-panel8{
   display: none;
   position: absolute;
-  top: 700px;
-  width: 310px;
-  height: 300px; 
+  bottom: 200px;
+  width: 290px;
+  height: 150px; 
   overflow-y:scroll;
   overflow-x:hidden;
   left: 23%; 

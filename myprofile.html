@@ -1,0 +1,265 @@
+<html lang="us">
+<head>
+<meta charset=utf-8 />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<!-- Latest compiled and minified JavaScript -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<style>
+.top-border { border-top: solid 1px #CCCCCC; width: 100%; padding: 20px 0px;}
+.padding-top-ten-px { padding-top: 30px; }
+
+.fill{
+	background-color: #cccccc;
+	
+}
+.pht{
+width: 110px;
+height:40px;
+padding: 10px 10px;
+background-color: #ffa64d;
+border-radius: 5px;
+
+}
+
+#videoContainer {
+    position:absolute;
+    height:1080px;
+    width:1920px;
+    overflow: hidden;
+}
+video {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+}
+
+.panel.panel-default{
+
+background-color: rgba(111, 99, 142, 0.6);
+
+
+}
+
+.form-group, .panel-body{
+color: white;
+}
+
+.form-group.col-md-6.form-control{
+padding-left: 10px;
+}
+
+</style>
+
+<script>
+
+
+
+</script>
+
+
+</head>
+<body id="main" class="fill">
+
+<div id="videoContainer">
+		
+		 <iframe frameborder="0" height="100%" width="100%" 
+			<source src="http://www.youtube.com/embed/3rE4sHJxdBg?autoplay=1" type="video/mp4">
+		</iframe>	
+		
+</div>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+        </div>
+        <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+        <li class="active">
+		<a href="#" class="hidden-xs">Home</a>
+ 		<a href="#" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Home</a>
+		</li>   
+		  
+		   
+         <li>
+		<a href="" class="hidden-xs">List Users</a>
+		<a href="" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">ListUsers</a>
+		 </li>
+		 
+		<li>
+		<a href="mycoolmap.html" class="hidden-xs">Map</a>
+		<a href="mycoolmap.html" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Map</a>
+		</li>	
+			
+		   
+		  </ul>
+		  
+		  <ul class="nav navbar-nav navbar-right">	
+				<li><a href="#">Logout</a></li>
+		  </ul>
+			
+			 
+			
+        </div><!--/.nav-collapse -->
+    </div>
+</div><br><br><br>
+<div class="container">
+  <div class="row">
+  	<div class="col-md-6 col-sm-6">    
+     <div class="panel panel-default">
+			<div class="panel-body">
+              		<div class="row">
+                        <div class="col-xs-12 col-sm-8">
+                            <h2>Vinod</h2>
+                            <p><strong>About: </strong> Test Analyst</p>
+                            <p><strong>Hobbies: </strong> Soccer, Mapbox, Html Design  </p>
+                            <p><strong>Skills: </strong>
+                                <span class="label label-info tags">dribbling</span> 
+                                <span class="label label-info tags">sprinting</span>
+                                <span class="label label-info tags">ball handling</span>
+                                <span class="label label-info tags">shooting</span>
+                            </p>
+                            
+                        </div><!--/col-->          
+                        <div class="col-xs-12 col-sm-4 text-center">
+                          		<ul class="list-inline text-center" title="Social Links">
+                                  
+                                  <li><a href="http://www.facebook.com" title="Facebook Wall" rel="nofollow"><span class="fa fa-facebook fa-lg"></span></a></li>
+                                  <li><a href="http://www.linkedin.com" title="LinkedIn Profile" rel="nofollow"><span class="fa fa-linkedin fa-lg"></span></a></li>
+                                  
+                          		</ul>
+								<div class="pht"><input type="file" onchange="previewFile()"></div><br>
+								<img src="" height="200" alt="Image preview..." class="center-block img-circle img-responsive">
+                                <!--<img src="file:///C:/Study/images/images/man1.jpg" class="center-block img-circle img-responsive">-->
+                               
+                        </div><!--/col-->
+              		</div><!--/row-->
+            </div><!--/panel-body-->
+        <form class="form-horizontal top-border" role="form">
+    	
+		  <div class="form-group">
+            <label class="col-md-3 control-label">First Name:</label>
+            <div class="col-md-6">
+              <input class="form-control" type="text" name="firstname" value="">
+            </div>
+          </div>
+		  <div class="form-group">
+            <label class="col-md-3 control-label">Last Name:</label>
+            <div class="col-md-6">
+              <input class="form-control" type="text" name="lastname" value="">
+            </div>
+          </div>
+		  <div class="form-group">
+            <label class="col-md-3 control-label">Address:</label>
+            <div class="col-md-6">
+              <input class="form-control" type="text" name="address" value="">
+            </div>
+          </div>
+		  <div class="form-group">
+            <label class="col-md-3 control-label">City & Country:</label>
+            <div class="col-md-6">
+              <input class="form-control" type="text" name="citycountry" value="">
+            </div>
+          </div>	   
+		  
+		  <div class="form-group">
+            <label class="col-md-3 control-label">Post Code:</label>
+            <div class="col-md-6">
+              <input class="form-control" type="text" name="postcode" value="">
+            </div>
+          </div>
+		  <div class="form-group">
+            <label class="col-md-3 control-label">Email:</label>
+            <div class="col-md-6">
+              <input class="form-control" type="text" name="email" value="">
+            </div>
+          </div>
+		  <div class="form-group">
+            <label class="col-md-3 control-label">Mobile:</label>
+            <div class="col-md-6">
+              <input class="form-control" type="text" name="mobile" value="">
+            </div>
+          </div>
+		  <div class="form-group">
+            <label class="col-md-3 control-label">Club:</label>
+            <div class="col-md-6">
+              <input class="form-control" type="text" name="club" value="">
+            </div>
+          </div>
+		  <div class="form-group">
+            <label class="col-md-3 control-label">Team:</label>
+            <div class="col-md-6">
+              <input class="form-control" type="text" name="team" value="">
+            </div>
+          </div>
+		  <div class="form-group">
+            <label class="col-md-3 control-label">Playing As:</label>
+            <div class="col-md-6">
+              <input type="checkbox" name="playingMain" value="">Playing 11<br>
+			  <input type="checkbox" name="playingSub" value="" checked>Sub Player<br>
+            </div>
+          </div>
+		  <div class="form-group">
+            <label class="col-md-3 control-label">Role:</label>
+            <div class="col-md-6">              
+				<select name="rolelist" form="rolelist">
+					<option name="user" value="user">User</option>
+					<option name="admin" value="admin">Admin</option>
+					<option name="superadmin" value="super admin">Super Admin</option>
+				  
+				</select>
+            </div>
+          </div>
+		  
+		  <div class="form-group">
+            <label class="col-md-3 control-label">Status:</label>
+            <div class="col-md-6">
+              <input type="checkbox" name="activate" value="" checked>Active<br>
+			  <input type="checkbox" name="deactivate" value="">Deactive<br>
+            </div>
+          </div>
+		  
+          <div class="form-group">
+            <label class="col-md-3 control-label">Password:</label>
+            <div class="col-md-6">
+              <input class="form-control" type="password" name="password" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Confirm Password:</label>
+            <div class="col-md-6">
+              <input class="form-control" type="password" name="confirmpassword" value="">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-6">
+              <input type="button" class="btn btn-primary" value="Save Changes">
+              <span></span>
+              <input type="reset" class="btn btn-default" value="Cancel">
+            </div>
+          </div>
+        </form><!--/form-->        
+	</div><!--/panel-->   
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

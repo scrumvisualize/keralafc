@@ -23,6 +23,10 @@ var markers =[];
 
 var myLatlng;
 
+var flightPlanCoordinates = [];
+var point;
+
+
 
 	  
 $(document).ready(function(){
@@ -293,7 +297,7 @@ function searchByplaces(){
             // Create a marker for each place.
             markers.push(new google.maps.Marker({
               map: map,
-			  icon: 'images/download.PNG',             
+			  icon: 'images/download.png',             
               title: place.name,
 			  animation: google.maps.Animation.DROP,
 			  draggable: true,
@@ -380,10 +384,26 @@ function findMe() {
 		title: "Vinod",
 		map: map		
 	});
+	markers.push(userMarker1);
+	
+	for (var i = 0; i < markers.length; i++) {
+            point = new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});
+            flightPlanCoordinates[i]=point;
+          }
+	
+	var flightPath = new google.maps.Polyline({
+          path: flightPlanCoordinates,
+          geodesic: true,
+          strokeColor: '#FF0000',
+          strokeOpacity: 1.0,
+          strokeWeight: 2
+        });
+
+        flightPath.setMap(map);
 	
 	window.setInterval("changeMarkerPosition(userMarker1)", 4000);
 	//changeMarkerPosition(userMarker1);
-	//markers.push(userMarker1);
+	
 	
 	var request = {
     location: {lat: currentLatitude, lng: currentLongitude},
@@ -425,6 +445,7 @@ var contentStringVM = '<b>Vinod Mathew</b>'+'<br><img class="img-circle" src="im
   });
   
   userMarker1.addListener('click', function() {
+	  content:'Vinod'
     infowindow.open(map, userMarker1);
   });
   
