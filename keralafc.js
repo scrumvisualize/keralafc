@@ -21,6 +21,8 @@ var userMarker1;
 
 var markers =[];
 
+var clearBar =[];
+
 var myLatlng;
 
 var flightPlanCoordinates = [];
@@ -384,24 +386,31 @@ function findMe() {
 		title: "Vinod",
 		map: map		
 	});
-	markers.push(userMarker1);
+	markers.push(userMarker1);	
+	
+	
+	//var latLngBounds = new google.maps.LatLngBounds();
+	//var startPath = [{lat: -33.9451, lng: 151.1993}];
 	
 	for (var i = 0; i < markers.length; i++) {
+		   //latLngBounds.extend(flightPlanCoordinates[i]);
             point = new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});
-            flightPlanCoordinates[i]=point;
-          }
-	
-	var flightPath = new google.maps.Polyline({
+            flightPlanCoordinates[i]=point;	
+			//map.fitBounds(latLngBounds);	
+
+		var flightPath = new google.maps.Polyline({
           path: flightPlanCoordinates,
           geodesic: true,
-          strokeColor: '#FF0000',
+          strokeColor: '#6d388c',
           strokeOpacity: 1.0,
           strokeWeight: 2
-        });
+        });			
+		flightPath.setMap(map);
+		
+     }
 
-        flightPath.setMap(map);
 	
-	window.setInterval("changeMarkerPosition(userMarker1)", 4000);
+	window.setInterval("changeMarkerPosition(userMarker1)", 3500);
 	//changeMarkerPosition(userMarker1);
 	
 	
@@ -431,7 +440,7 @@ function createMarker(place) {
 		  animation: google.maps.Animation.DROP,
           position: place.geometry.location
         });
-		markers.push(marker);
+		clearBar.push(marker);
 
         google.maps.event.addListener(marker, 'click', function() {
           infowindow.setContent(place.name);
@@ -466,8 +475,8 @@ var myLatlng = new google.maps.LatLng(currentLatitude, currentLongitude);
 function clearMarker(){
 	
 var clearBtn = document.getElementById("btnClr");
- for(var i=0; i< markers.length; i++) {
-        markers[i].setMap(null);
+ for(var i=0; i< clearBar.length; i++) {
+        clearBar[i].setMap(null);
     }	
 	
 }
