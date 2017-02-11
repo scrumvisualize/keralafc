@@ -392,23 +392,22 @@ function findMe() {
 	//var latLngBounds = new google.maps.LatLngBounds();
 	//var startPath = [{lat: -33.9451, lng: 151.1993}];
 	
-	for (var i = 0; i < markers.length; i++) {
+	for (var i = 0; i < flightPlanCoordinates.length; i++) {
 		   //latLngBounds.extend(flightPlanCoordinates[i]);
             point = new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});
             flightPlanCoordinates[i]=point;	
-			//map.fitBounds(latLngBounds);	
+			//map.fitBounds(latLngBounds);		
+		
+     }
 
-		var flightPath = new google.maps.Polyline({
+	 var flightPath = new google.maps.Polyline({
           path: flightPlanCoordinates,
           geodesic: true,
           strokeColor: '#6d388c',
           strokeOpacity: 1.0,
           strokeWeight: 2
         });			
-		flightPath.setMap(map);
-		
-     }
-
+	flightPath.setMap(map);
 	
 	window.setInterval("changeMarkerPosition(userMarker1)", 3500);
 	//changeMarkerPosition(userMarker1);
