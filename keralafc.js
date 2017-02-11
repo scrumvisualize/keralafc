@@ -386,16 +386,12 @@ function findMe() {
 		title: "Vinod",
 		map: map		
 	});
-	markers.push(userMarker1);	
+	markers.push(userMarker1);		
 	
-	
-	//var latLngBounds = new google.maps.LatLngBounds();
-	//var startPath = [{lat: -33.9451, lng: 151.1993}];
-	
-	for (var i = 0; i < flightPlanCoordinates.length; i++) {
+	flightPlanCoordinates[0] = new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});
+	for (var i = 1; i <= markers.length; i++) {
 		   //latLngBounds.extend(flightPlanCoordinates[i]);
-            point = new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});
-            flightPlanCoordinates[i]=point;	
+            flightPlanCoordinates[i]= new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});	
 			//map.fitBounds(latLngBounds);		
 		
      }
