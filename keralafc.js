@@ -384,26 +384,28 @@ function findMe() {
 		zoom: 13,
 		icon:'images/pointer_2.png',		
 		title: "Vinod",
+		draggable:true,
 		map: map		
 	});
 	markers.push(userMarker1);		
 	
-	flightPlanCoordinates[0] = new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});
-	for (var i = 1; i <= markers.length; i++) {
-		   //latLngBounds.extend(flightPlanCoordinates[i]);
-            flightPlanCoordinates[i]= new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});	
-			//map.fitBounds(latLngBounds);		
+	//flightPlanCoordinates[0] = new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});
+	//for (var i = 1; i <= markers.length; i++) {
+		   //latLngBounds.extend(flightPlanCoordinates[i]);		   
+            //flightPlanCoordinates[i]= new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});	
+			//map.fitBounds(latLngBounds);	
+	//var flightPath = new google.maps.Polyline({
+          //path: flightPlanCoordinates,
+          //geodesic: true,
+         //strokeColor: '#6d388c',
+          //strokeOpacity: 1.0,
+          //strokeWeight: 2
+        //});			
 		
-     }
+     //}
 
-	 var flightPath = new google.maps.Polyline({
-          path: flightPlanCoordinates,
-          geodesic: true,
-          strokeColor: '#6d388c',
-          strokeOpacity: 1.0,
-          strokeWeight: 2
-        });			
-	flightPath.setMap(map);
+	 			
+	//flightPath.setMap(map);
 	
 	window.setInterval("changeMarkerPosition(userMarker1)", 3500);
 	//changeMarkerPosition(userMarker1);
@@ -461,8 +463,25 @@ var contentStringVM = '<b>Vinod Mathew</b>'+'<br><img class="img-circle" src="im
 function changeMarkerPosition(userMarker1) {
 
 var myLatlng = new google.maps.LatLng(currentLatitude, currentLongitude);
-	map.panTo(new google.maps.LatLng( currentLatitude, currentLongitude ));
-	userMarker1.setPosition(myLatlng);   	
+	map.panTo(new google.maps.LatLng(currentLatitude, currentLongitude ));
+	userMarker1.setPosition(myLatlng);
+	markers.push(userMarker1);
+    flightPlanCoordinates[0] = new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});	
+	
+	for (var i = 1; i <= markers.length; i++) {
+	
+	 flightPlanCoordinates[i]= new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});	
+
+    var flightPath = new google.maps.Polyline({
+          path: flightPlanCoordinates,
+          geodesic: true,
+          strokeColor: '#6d388c',
+          strokeOpacity: 1.0,
+          strokeWeight: 2
+        });	
+		
+		flightPath.setMap(map);
+	}		
     
 }
 
