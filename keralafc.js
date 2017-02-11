@@ -100,10 +100,7 @@ var contentString2 = '<div id="content">' +
 		
     }
 	
-	
-	
-	 	
-	
+
 
     // Function for adding a marker to the page.
     function addMarker(location) {
@@ -191,9 +188,7 @@ var contentString2 = '<div id="content">' +
    
     }
 	
-	
-
-  
+ 
  
       function initAutocomplete() {
 	  
@@ -340,11 +335,6 @@ if (document.getElementById('showtraffic').checked === true) {
 		
 }
   
- 
-
-
-
-
 
 
 $(document).ready(function(){	
@@ -352,8 +342,6 @@ $(document).ready(function(){
         $("#floating-panel7, #floating-panel8").slideToggle("slow");
     });
 });
-
-
 
 
 
@@ -402,14 +390,11 @@ function findMe() {
           //strokeWeight: 2
         //});			
 		
-     //}
-
-	 			
+     //}	 			
 	//flightPath.setMap(map);
 	
-	window.setInterval("changeMarkerPosition(userMarker1)", 3500);
-	//changeMarkerPosition(userMarker1);
-	
+	window.setInterval("changeMarkerPosition(userMarker1)", 6000);
+	//changeMarkerPosition(userMarker1);	
 	
 	var request = {
     location: {lat: currentLatitude, lng: currentLongitude},
@@ -454,8 +439,6 @@ var contentStringVM = '<b>Vinod Mathew</b>'+'<br><img class="img-circle" src="im
 	  content:'Vinod'
     infowindow.open(map, userMarker1);
   });
-  
-	  
 
 }
 
@@ -475,9 +458,9 @@ var myLatlng = new google.maps.LatLng(currentLatitude, currentLongitude);
     var flightPath = new google.maps.Polyline({
           path: flightPlanCoordinates,
           geodesic: true,
-          strokeColor: '#6d388c',
+          strokeColor: '#52b2f2',
           strokeOpacity: 1.0,
-          strokeWeight: 2
+          strokeWeight: 1
         });	
 		
 		flightPath.setMap(map);
