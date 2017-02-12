@@ -1,4 +1,4 @@
-#map {
+﻿#map {
         height: 100%;
       }
       /* Optional: Makes the sample page fill the window. */
@@ -53,9 +53,12 @@ h3 {
 .button1, .button2{
 	
 	background-color: #e54e1b;
-	border-radius: 4px;
-	height: 25px;
-	color: #fff;
+	border-radius: 4px;	
+	color: #fff;	
+  	height: 60px;
+  	width: 60px;
+  	border-radius: 50%;
+  	border: 1px solid red;
 	
     
 }
@@ -373,12 +376,12 @@ h3 {
 #floating-panel10{
   
   position: absolute;
-  top: 473px;
-  width: 78px;
-  height: 10px;   
-  left: 3%; 
-  z-index: 5;
-  background-color: #abd1f3;
+  bottom: 80px;
+  width: 200px;
+  height: 10px; 
+  left: 45%;  
+  z-index: 1;
+  background-color: #efefea;
   padding: 0px;
   text-align: left;
   font-family: 'Roboto','sans-serif';
@@ -386,7 +389,15 @@ h3 {
   padding-left: 0px;
   opacity: 1;
   filter: alpha(opacity=70);
+  margin-left: auto;
+  margin-right: auto;
  
+}
+
+#Lbutton, #Cbutton {
+     
+     display: inline-block;    
+     padding: 2px;   
 }
 .popup {
   top: 20px;
@@ -525,4 +536,5 @@ left: 1%;
     float: left; 
 	
 }
+
 

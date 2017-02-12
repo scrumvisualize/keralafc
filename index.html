@@ -140,12 +140,19 @@
 	
    </div>
    
-   <div id="floating-panel10" class="menu-ui_panel">
    
-    <div><button type="button" id="btnLoc" class="button button1" onclick="findMe()">Locate Me</button></div>
-	<div><button type="button" id="btnClr" class="button button2" onclick="clearMarker()">Clear All</button></div>   
-	
-   </div>
+   
+   <div id="floating-panel10" class="container-fluid">
+		<div class="row">			
+			<div class="col-sm-6" id="Lbutton"><button type="button" id="btnLoc" class="button button1" onclick="findMe()">Locate Me</button>
+			</div>
+			<div class="col-sm-6" id="Cbutton"><button type="button" id="btnClr" class="button button2" onclick="clearMarker()">Clear All</button>
+			</div>
+			
+		</div>
+	</div>
+
+   
    
    
    <input id="pac-input" class="controls" type="text" placeholder="Search Box">

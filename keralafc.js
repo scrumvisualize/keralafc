@@ -370,7 +370,7 @@ function findMe() {
 		userMarker1 = new google.maps.Marker({	
 		position: {lat: currentLatitude, lng: currentLongitude},
 		zoom: 13,
-		icon:'images/pointer_2.png',		
+		icon:'images/pointer1.png',		
 		title: "Vinod",
 		draggable:true,
 		map: map		
@@ -460,7 +460,7 @@ var myLatlng = new google.maps.LatLng(currentLatitude, currentLongitude);
           geodesic: true,
           strokeColor: '#52b2f2',
           strokeOpacity: 1.0,
-          strokeWeight: 1
+          strokeWeight: 3
         });	
 		
 		flightPath.setMap(map);
