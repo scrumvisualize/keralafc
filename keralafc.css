@@ -79,10 +79,10 @@ h3 {
         font-family: Roboto;
         font-size: 15px;
         font-weight: 300;
-        margin-left: 12px;
-        padding: 0 11px 0 13px;
+        margin-left: 0px;
+        padding: 0 5px 0 5px;
         text-overflow: ellipsis;
-        width: 300px;
+        width: 59%;
       }
 
       #pac-input:focus {
@@ -269,7 +269,7 @@ h3 {
   height: 20px;
   left: 3%;
   z-index: 5;
-  background-color: #abd1f3;
+  background-color: rgb(239, 239, 234, 0.5);
   padding: 0px;
   text-align: center;
   font-family: 'Roboto','sans-serif';
@@ -381,20 +381,21 @@ h3 {
   height: 10px; 
   left: 30%;  
   z-index: 1;
-  background-color: #efefea;
+  background-color: rgb(239, 239, 234, 0.5);  
   padding: 0px;
   text-align: left;
   font-family: 'Roboto','sans-serif';
-  line-height: 28px;
+  line-height: 35px;
   padding-left: 0px;
   opacity: 1;
   filter: alpha(opacity=70);
   margin-left: auto;
   margin-right: auto;
+  
  
 }
 
-#Lbutton, #Cbutton {
+#Lbutton, #Cbutton{
      
      display: inline-block;    
      padding: 2px;   
@@ -506,11 +507,12 @@ left: 1%;
 
 .img-score {
     display: inline-block;
-    width: 2.5em;
+    width: 2.6em;
     height: 2.5em;
-    border: 0.2em solid #808080;
+    border: 0.2em solid #e54e1b;
     border-radius: 13%;
     margin-left: 0.1em;
+	background-color:#afa7a3;
 }
 
 .img-score:after {
@@ -519,8 +521,8 @@ left: 1%;
     margin-top: 0.2em;
     width: 1.0em;
     height: 1.0em;
-    border-top: 0.4em solid #808080;
-    border-right: 0.4em solid #808080;
+    border-top: 0.4em solid #e54e1b;
+    border-right: 0.4em solid #e54e1b;
     -moz-transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
