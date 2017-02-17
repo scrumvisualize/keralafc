@@ -28,6 +28,7 @@ var myLatlng;
 var flightPlanCoordinates = [];
 var point;
 
+var distance;
 
 
 	  
@@ -223,8 +224,8 @@ var contentString2 = '<div id="content">' +
  
  function calcRoute() {
     var request = {
-        origin: $("#routeTo").val(),
-        destination: $("#routeFrom").val(),
+        origin: $("#routeFrom").val(),
+        destination: $("#routeTo").val(),
         travelMode: google.maps.TravelMode[$("#routeMode").val()]
     };
     directionsService.route(request, function(response, status) {
@@ -294,7 +295,7 @@ function searchByplaces(){
             // Create a marker for each place.
             markers.push(new google.maps.Marker({
               map: map,
-			  icon: 'images/download.png',             
+			  icon: 'images/starone.PNG',             
               title: place.name,
 			  animation: google.maps.Animation.DROP,
 			  draggable: true,
@@ -377,21 +378,6 @@ function findMe() {
 	});
 	markers.push(userMarker1);		
 	
-	//flightPlanCoordinates[0] = new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});
-	//for (var i = 1; i <= markers.length; i++) {
-		   //latLngBounds.extend(flightPlanCoordinates[i]);		   
-            //flightPlanCoordinates[i]= new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});	
-			//map.fitBounds(latLngBounds);	
-	//var flightPath = new google.maps.Polyline({
-          //path: flightPlanCoordinates,
-          //geodesic: true,
-         //strokeColor: '#6d388c',
-          //strokeOpacity: 1.0,
-          //strokeWeight: 2
-        //});			
-		
-     //}	 			
-	//flightPath.setMap(map);
 	
 	window.setInterval("changeMarkerPosition(userMarker1)", 6000);
 	//changeMarkerPosition(userMarker1);	
@@ -454,7 +440,14 @@ var myLatlng = new google.maps.LatLng(currentLatitude, currentLongitude);
 	for (var i = 1; i <= markers.length; i++) {
 	
 	 flightPlanCoordinates[i]= new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});	
+	 
+	  distance = google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude}), flightPlanCoordinates[i]);
 
+         if (distance <= 0.2) { 
+		
+		return;
+
+}
     var flightPath = new google.maps.Polyline({
           path: flightPlanCoordinates,
           geodesic: true,
