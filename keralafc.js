@@ -441,13 +441,15 @@ var myLatlng = new google.maps.LatLng(currentLatitude, currentLongitude);
 	
 	 flightPlanCoordinates[i]= new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});	
 	 
-	  distance = google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(flightPath, {lat: currentLatitude, lng: currentLongitude}), flightPlanCoordinates[i]);
+	 // distance = google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(flightPath, {lat: currentLatitude, lng: currentLongitude}), flightPlanCoordinates[i]);
+	  
+	  var distance = (google.maps.geometry.spherical.computeDistanceBetween(flightPlanCoordinates[0], flightPlanCoordinates[i]) / 1000).toFixed(2);
 
          if (distance <= 200) { 
 		
 		return;
 
-}
+		}
     var flightPath = new google.maps.Polyline({
           path: flightPlanCoordinates,
           geodesic: true,
