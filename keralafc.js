@@ -29,7 +29,7 @@ var flightPlanCoordinates = [];
 var point;
 var latestLoc =[];
 var distance;
-var i =0;
+var i =1;
 var loopVariable = 1;
 
 
@@ -381,7 +381,7 @@ function findMe() {
 	markers.push(userMarker1);		
 	
 	
-	window.setInterval("changeMarkerPosition(userMarker1)", 6000);
+	window.setInterval("changeMarkerPosition(userMarker1)", 8000);
 	//changeMarkerPosition(userMarker1);	
 	
 	var request = {
@@ -449,16 +449,23 @@ var myLatlng = new google.maps.LatLng(currentLatitude, currentLongitude);
 		if( loopVariable > 0){
 			
 				
-			 flightPlanCoordinates[0]= new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});		 
-			//var distance = google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(flightPath, {lat: currentLatitude, lng: currentLongitude}), flightPlanCoordinates[i]);		
-			distance = (google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(flightPath, {lat: currentLatitude, lng: currentLongitude}, flightPlanCoordinates[i-1])) / 1000).toFixed(2);
-			//distance = (google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude}), flightPlanCoordinates[0]) / 1000).toFixed(2);
+			 //flightPlanCoordinates[0]= new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});
+			 
+				flightPlanCoordinates[0]= new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});
+			    flightPlanCoordinates[2]= new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});
+			 
+			 
 			
-			if (distance <= 100) {			
+			//var distance = google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(flightPath, {lat: currentLatitude, lng: currentLongitude}), flightPlanCoordinates[i]);		
+			//distance = (google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(flightPath, {lat: currentLatitude, lng: currentLongitude}, flightPlanCoordinates[i-1])) / 1000).toFixed(2);
+			 distance = (google.maps.geometry.spherical.computeDistanceBetween(flightPlanCoordinates[i+1], flightPlanCoordinates[0]) / 1000).toFixed(2);
+			 //alert(distance); 
+			
+			if (distance < 0.2) {			
 			return;
-			} 
+			}
 			var flightPath = new google.maps.Polyline({
-			path: loopVariable,
+			path: flightPlanCoordinates,
 			geodesic: true,
 			strokeColor: '#52b2f2',
 			strokeOpacity: 1.0,
