@@ -438,14 +438,36 @@ var myLatlng = new google.maps.LatLng(currentLatitude, currentLongitude);
 	userMarker1.setPosition(myLatlng);
 	markers.push(userMarker1);
 	
+	 flightPlanCoordinates[0] = new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});
+	
+	for (var i = 1; i <= markers.length; i++) {
+	
+	 flightPlanCoordinates[i]= new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});	
+	 
+	 var distance = (google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(flightPath, {lat: currentLatitude, lng: currentLongitude}), flightPlanCoordinates[i])/1000);
+
+         if (distance < 0.2) { 
+		
+		return;
+
+}
+    var flightPath = new google.maps.Polyline({
+          path: flightPlanCoordinates,
+          geodesic: true,
+          strokeColor: '#52b2f2',
+          strokeOpacity: 1.0,
+          strokeWeight: 3
+        });	
+		
+		flightPath.setMap(map);
+	}
+	
 	
 		
-	while (markers.length >0 ){
+/* 	while (markers.length >0 ){
 		flightPlanCoordinates[0] = new google.maps.LatLng({lat: currentLatitude, lng: currentLongitude});
 		//alert(flightPlanCoordinates[0]); 
-			
-		
-		
+
 		if( loopVariable > 0){
 			
 				
@@ -458,8 +480,8 @@ var myLatlng = new google.maps.LatLng(currentLatitude, currentLongitude);
 			
 			//var distance = google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(flightPath, {lat: currentLatitude, lng: currentLongitude}), flightPlanCoordinates[i]);		
 			//distance = (google.maps.geometry.spherical.computeDistanceBetween (new google.maps.LatLng(flightPath, {lat: currentLatitude, lng: currentLongitude}, flightPlanCoordinates[i-1])) / 1000).toFixed(2);
-			 distance = (google.maps.geometry.spherical.computeDistanceBetween(flightPlanCoordinates[i+1], flightPlanCoordinates[0]) / 1000).toFixed(2);
-			 //alert(distance); 
+			 distance = (google.maps.geometry.spherical.computeDistanceBetween(flightPlanCoordinates[2], flightPlanCoordinates[0]) / 1000).toFixed(2);
+			 alert(distance); 
 			
 			if (distance < 0.2) {			
 			return;
@@ -479,7 +501,7 @@ var myLatlng = new google.maps.LatLng(currentLatitude, currentLongitude);
 		loopVariable++;
 		
 		
-	} 
+	} */ 
       
   
     
